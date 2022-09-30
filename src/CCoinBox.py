@@ -8,7 +8,7 @@ class CCoinBox:
 
     def ajouter_25c(self):
         self.monnaie_courante = self.monnaie_courante + 1
-        if self.monnaie_courante > 1:
+        if self.monnaie_courante >= 1:#mod 1
             self.vente_permise = True
         print("Une pièce a été ajoutée")
 
@@ -17,7 +17,7 @@ class CCoinBox:
             self.monnaie_totale = self.monnaie_totale + 2
             self.monnaie_courante = self.monnaie_courante - 2
             print("Vente! Voici votre article ...")
-            if self.monnaie_courante < 2:
+            if self.monnaie_courante >= 2: #mod 3
                 self.vente_permise = False
 
     def reset(self):
@@ -38,4 +38,4 @@ class CCoinBox:
         return self.monnaie_courante
 
     def get_vente_permise(self):
-        return self.vente_permise
+        return not self.vente_permise #mod 2
